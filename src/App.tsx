@@ -4,6 +4,7 @@ import { Menu, X, Camera, Palette, Share2, Globe, Film, Mic, Paintbrush, ArrowRi
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState('all');
+  const [selectedService, setSelectedService] = useState<string | null>(null);
 
   const services = [
     {
@@ -11,56 +12,64 @@ function App() {
       title: 'Logo & Identity',
       description: 'Unique brand identities',
       color: 'yellow',
-      delay: '0'
+      delay: '0',
+      category: 'design'
     },
     {
       icon: Palette,
       title: 'Graphic Design',
       description: 'Eye-catching visuals',
       color: 'blue',
-      delay: '100'
+      delay: '100',
+      category: 'design'
     },
     {
       icon: Share2,
       title: 'Social Media',
       description: 'Engaging content',
       color: 'yellow',
-      delay: '200'
+      delay: '200',
+      category: 'design'
     },
     {
       icon: Globe,
       title: 'Web Design',
       description: 'Digital experiences',
       color: 'blue',
-      delay: '300'
+      delay: '300',
+      category: 'design'
     },
     {
       icon: Camera,
       title: 'Photography',
       description: 'Stunning shots',
       color: 'yellow',
-      delay: '400'
+      delay: '400',
+      category: 'photography'
     },
     {
       icon: Film,
       title: 'Videography',
       description: 'Compelling stories',
       color: 'blue',
-      delay: '500'
+      delay: '500',
+      category: 'video'
     },
     {
       icon: Mic,
       title: 'Audio Design',
       description: 'Soundscapes',
       color: 'yellow',
-      delay: '600'
+      delay: '600',
+      category: 'video'
     },
     {
       icon: Paintbrush,
       title: 'Mural Art',
       description: 'Street art & murals',
       color: 'blue',
-      delay: '700'
+      delay: '700',
+      category: 'mural'
     }
   ];
 
@@ -79,6 +88,12 @@ function App() {
     ? portfolio
     : portfolio.filter(item => item.category === activeFilter);
 
+  const handleServiceClick = (category: string) => {
+    setSelectedService(category);
+    setActiveFilter(category);
+    scrollToSection('portfolio');
+  };
+
   const scrollToSection = (id: string) => {
     setIsMenuOpen(false);
     const element = document.getElementById(id);
@@ -90,16 +105,7 @@ function App() {
       <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center lg:justify-between h-16 sm:h-20 relative">
-            <div className="flex-shrink-0 absolute left-0 lg:relative">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden text-black"
-              >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
-
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 lg:absolute lg:left-0">
               <div className="relative">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-black via-red-600 to-green-600 relative overflow-hidden">
                   <span className="absolute inset-0 flex items-center justify-center text-white font-black text-xl sm:text-2xl">M</span>
@@ -112,6 +118,15 @@ function App() {
                 </h1>
                 <p className="text-[9px] sm:text-xs text-blue-500 font-bold tracking-widest -mt-1">STUDIO</p>
               </div>
+            </div>
+
+            <div className="flex-shrink-0 absolute right-0 lg:relative lg:right-auto">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="lg:hidden text-black"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
             </div>
 
             <div className="hidden lg:flex items-center gap-8">
@@ -255,10 +270,11 @@ function App() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {services.map((service, index) => (
-              <div
+              <button
                 key={index}
+                onClick={() => handleServiceClick(service.category)}
                 style={{ animationDelay: `${service.delay}ms` }}
-                className={`group relative bg-white p-6 sm:p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-l-4 ${
+                className={`group relative bg-white p-6 sm:p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-l-4 text-left cursor-pointer ${
                   service.color === 'yellow' ? 'border-yellow-400' : 'border-blue-500'
                 }`}
               >
@@ -279,7 +295,7 @@ function App() {
                 <div className={`absolute bottom-0 left-0 w-full h-1 ${
                   service.color === 'yellow' ? 'bg-yellow-400' : 'bg-blue-500'
                 } transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}></div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
