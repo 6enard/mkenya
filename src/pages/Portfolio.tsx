@@ -65,32 +65,39 @@ export default function Portfolio() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[250px] sm:auto-rows-[300px] gap-4 sm:gap-6">
-          {filteredPortfolio.map((item) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[280px] sm:auto-rows-[350px] gap-6 sm:gap-8">
+          {filteredPortfolio.map((item, index) => (
             <Link
               key={item.id}
               to={`/portfolio/${item.id}`}
-              className={`group relative overflow-hidden cursor-pointer ${item.span}`}
+              style={{ animationDelay: `${index * 50}ms` }}
+              className={`group relative overflow-hidden cursor-pointer ${item.span} rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-500`}
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <div className="text-yellow-400 text-xs sm:text-sm font-bold uppercase mb-2">
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300 z-20"></div>
+
+              <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end z-30">
+                <div className="transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                  <div className="inline-block px-3 py-1 bg-yellow-400 text-black text-xs font-black uppercase mb-3 rounded-full">
                     {item.category}
                   </div>
-                  <h3 className="text-white text-xl sm:text-2xl font-black">{item.title}</h3>
-                  <div className="flex items-center gap-2 text-white mt-3 text-sm font-bold">
-                    View Project <ArrowRight className="w-4 h-4" />
+                  <h3 className="text-white text-2xl sm:text-3xl font-black mb-2 leading-tight">{item.title}</h3>
+                  <p className="text-gray-300 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">{item.description}</p>
+                  <div className="flex items-center gap-2 text-yellow-400 text-sm font-black uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
+                    View Details <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </div>
 
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-blue-500 transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+              <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-yellow-400 via-blue-500 to-yellow-400 transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-40"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-500 via-yellow-400 to-blue-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-40"></div>
             </Link>
           ))}
         </div>

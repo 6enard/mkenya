@@ -1,7 +1,29 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Play, Camera, Palette, Share2, Globe, Film, Mic, Paintbrush } from 'lucide-react';
+import { ArrowRight, Play, Camera, Palette, Share2, Globe, Film, Mic, Paintbrush, MapPin } from 'lucide-react';
+import { useState } from 'react';
+import Map from '../components/Map';
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    service: '',
+    message: ''
+  });
+  const [formStatus, setFormStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus({ type: 'success', message: 'Thank you! We will get back to you shortly.' });
+    setFormData({ name: '', email: '', service: '', message: '' });
+  };
   const services = [
     {
       icon: Palette,
@@ -256,40 +278,125 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white/5 p-6 text-center border-2 border-transparent hover:border-yellow-400 transition-all duration-300">
-              <div className="w-12 h-12 bg-yellow-400 flex items-center justify-center mx-auto mb-4">
-                <span className="text-black font-black text-xl">@</span>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-16">
+            <div>
+              <div className="space-y-6 mb-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-yellow-400 flex items-center justify-center flex-shrink-0">
+                    <span className="text-black font-black">@</span>
+                  </div>
+                  <div>
+                    <div className="text-xs uppercase font-bold text-gray-400 mb-1">Email</div>
+                    <div className="text-base sm:text-lg font-bold">hello@mkenya.studio</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-blue-500 flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-black">+</span>
+                  </div>
+                  <div>
+                    <div className="text-xs uppercase font-bold text-gray-400 mb-1">Phone</div>
+                    <div className="text-base sm:text-lg font-bold">+254 XXX XXX XXX</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-yellow-400 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="text-black" size={24} strokeWidth={2.5} />
+                  </div>
+                  <div>
+                    <div className="text-xs uppercase font-bold text-gray-400 mb-1">Location</div>
+                    <div className="text-base sm:text-lg font-bold">mkenya studio, Nairobi</div>
+                  </div>
+                </div>
               </div>
-              <div className="text-xs uppercase font-bold text-gray-400 mb-2">Email</div>
-              <div className="text-base font-bold">hello@mkenya.studio</div>
             </div>
 
-            <div className="bg-white/5 p-6 text-center border-2 border-transparent hover:border-blue-500 transition-all duration-300">
-              <div className="w-12 h-12 bg-blue-500 flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-black text-xl">+</span>
-              </div>
-              <div className="text-xs uppercase font-bold text-gray-400 mb-2">Phone</div>
-              <div className="text-base font-bold">+254 XXX XXX XXX</div>
-            </div>
+            <div className="bg-white p-6 sm:p-8 lg:p-10">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {formStatus && (
+                  <div className={`p-4 rounded ${formStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                    <p className="font-bold text-sm">{formStatus.message}</p>
+                  </div>
+                )}
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Your Name"
+                    required
+                    className="w-full px-4 py-3 sm:py-4 bg-gray-50 border-2 border-transparent focus:border-yellow-400 outline-none transition-colors text-black font-medium"
+                  />
+                </div>
 
-            <div className="bg-white/5 p-6 text-center border-2 border-transparent hover:border-yellow-400 transition-all duration-300">
-              <div className="w-12 h-12 bg-yellow-400 flex items-center justify-center mx-auto mb-4">
-                <span className="text-black font-black text-xl">📍</span>
-              </div>
-              <div className="text-xs uppercase font-bold text-gray-400 mb-2">Location</div>
-              <div className="text-base font-bold">Nairobi, Kenya</div>
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Email Address"
+                    required
+                    className="w-full px-4 py-3 sm:py-4 bg-gray-50 border-2 border-transparent focus:border-yellow-400 outline-none transition-colors text-black font-medium"
+                  />
+                </div>
+
+                <div>
+                  <select
+                    name="service"
+                    value={formData.service}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 sm:py-4 bg-gray-50 border-2 border-transparent focus:border-yellow-400 outline-none transition-colors text-black font-medium"
+                  >
+                    <option value="">Service Needed</option>
+                    <option value="Logo & Identity">Logo & Identity</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="Web Design">Web Design</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Videography">Videography</option>
+                    <option value="Audio Design">Audio Design</option>
+                    <option value="Mural Art">Mural Art</option>
+                  </select>
+                </div>
+
+                <div>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={5}
+                    placeholder="Tell us about your project..."
+                    required
+                    className="w-full px-4 py-3 sm:py-4 bg-gray-50 border-2 border-transparent focus:border-yellow-400 outline-none transition-colors text-black font-medium resize-none"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-yellow-400 text-black py-4 font-black uppercase text-base sm:text-lg hover:bg-blue-500 hover:text-white transition-all duration-300 flex items-center justify-center gap-3 group"
+                >
+                  Send Message
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </form>
             </div>
           </div>
 
-          <div className="text-center">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 bg-yellow-400 text-black px-8 py-4 font-bold uppercase hover:bg-blue-500 hover:text-white transition-all duration-300"
-            >
-              Start Your Project
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+          <div className="mt-8">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl sm:text-4xl font-black mb-4">
+                FIND <span className="text-yellow-400">US HERE</span>
+              </h3>
+              <p className="text-gray-300">Visit our studio in Nairobi</p>
+            </div>
+            <div className="bg-white rounded-lg overflow-hidden shadow-2xl">
+              <Map />
+            </div>
           </div>
         </div>
       </section>
