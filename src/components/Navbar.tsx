@@ -21,8 +21,8 @@ export default function Navbar() {
         <div className="flex items-center justify-center lg:justify-between h-16 sm:h-20 relative">
           <Link to="/" className="flex items-center gap-3 lg:absolute lg:left-0">
             <div className="relative">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-black via-red-600 to-green-600 relative overflow-hidden">
-                <span className="absolute inset-0 flex items-center justify-center text-black font-black text-xl sm:text-2xl">M</span>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-black relative overflow-hidden">
+                <span className="absolute inset-0 flex items-center justify-center text-white font-black text-xl sm:text-2xl">M</span>
               </div>
               <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-yellow-400"></div>
             </div>
