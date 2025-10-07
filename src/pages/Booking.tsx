@@ -1,48 +1,30 @@
-import { useState, useEffect } from 'react';
-import { createClient } from '@supabase/supabase-js';
-import { Calendar, Clock, CheckCircle, XCircle, Loader } from 'lucide-react';
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+import { useState } from 'react';
+import { Calendar, Clock, CheckCircle, XCircle } from 'lucide-react';
 
 interface TimeSlot {
   id: string;
-  date: string;
-  start_time: string;
-  end_time: string;
-  is_available: boolean;
-  booking_id: string | null;
+  time: string;
+  available: boolean;
 }
 
-interface Booking {
+interface BookingData {
   client_name: string;
   client_email: string;
   client_phone: string;
   service_type: string;
-  booking_date: string;
-  start_time: string;
-  end_time: string;
   notes: string;
 }
 
 export default function Booking() {
   const [selectedDate, setSelectedDate] = useState<string>('');
-  const [timeSlots, setTimeSlots] = useState<TimeSlot[]>([]);
-  const [selectedSlot, setSelectedSlot] = useState<TimeSlot | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
+  const [selectedTime, setSelectedTime] = useState<string>('');
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
 
-  const [formData, setFormData] = useState<Booking>({
+  const [formData, setFormData] = useState<BookingData>({
     client_name: '',
     client_email: '',
     client_phone: '',
     service_type: '',
-    booking_date: '',
-    start_time: '',
-    end_time: '',
     notes: ''
   });
 
@@ -57,75 +39,17 @@ export default function Booking() {
     'Mural Art'
   ];
 
-  const generateTimeSlots = () => {
-    const slots: { start: string; end: string }[] = [];
-    const startHour = 9;
-    const endHour = 17;
-
-    for (let hour = startHour; hour < endHour; hour++) {
-      const startTime = `${hour.toString().padStart(2, '0')}:00:00`;
-      const endTime = `${(hour + 1).toString().padStart(2, '0')}:00:00`;
-      slots.push({ start: startTime, end: endTime });
-    }
-
-    return slots;
-  };
-
-  useEffect(() => {
-    if (selectedDate) {
-      fetchTimeSlots();
-    }
-  }, [selectedDate]);
-
-  const fetchTimeSlots = async () => {
-    setLoading(true);
-    try {
-      const { data, error } = await supabase
-        .from('time_slots')
-        .select('*')
-        .eq('date', selectedDate)
-        .order('start_time');
-
-      if (error) throw error;
-
-      if (!data || data.length === 0) {
-        const defaultSlots = generateTimeSlots();
-        const slotsToInsert = defaultSlots.map(slot => ({
-          date: selectedDate,
-          start_time: slot.start,
-          end_time: slot.end,
-          is_available: true
-        }));
-
-        const { data: newSlots, error: insertError } = await supabase
-          .from('time_slots')
-          .insert(slotsToInsert)
-          .select();
-
-        if (insertError) throw insertError;
-        setTimeSlots(newSlots || []);
-      } else {
-        setTimeSlots(data);
-      }
-    } catch (error) {
-      console.error('Error fetching time slots:', error);
-      setMessage({ type: 'error', text: 'Failed to load time slots' });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleSlotSelect = (slot: TimeSlot) => {
-    if (slot.is_available) {
-      setSelectedSlot(slot);
-      setFormData(prev => ({
-        ...prev,
-        booking_date: slot.date,
-        start_time: slot.start_time,
-        end_time: slot.end_time
-      }));
-    }
-  };
+  const timeSlots: TimeSlot[] = [
+    { id: '1', time: '09:00', available: true },
+    { id: '2', time: '10:00', available: true },
+    { id: '3', time: '11:00', available: true },
+    { id: '4', time: '12:00', available: true },
+    { id: '5', time: '13:00', available: true },
+    { id: '6', time: '14:00', available: true },
+    { id: '7', time: '15:00', available: true },
+    { id: '8', time: '16:00', available: true },
+    { id: '9', time: '17:00', available: true },
+  ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
@@ -134,66 +58,25 @@ export default function Booking() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!selectedSlot) {
-      setMessage({ type: 'error', text: 'Please select a time slot' });
+    if (!selectedDate || !selectedTime) {
+      setMessage({ type: 'error', text: 'Please select both date and time' });
       return;
     }
 
-    setSubmitting(true);
-    setMessage(null);
+    setMessage({ type: 'success', text: 'Booking request submitted! We will contact you shortly to confirm.' });
 
-    try {
-      const { data: booking, error: bookingError } = await supabase
-        .from('bookings')
-        .insert([{
-          client_name: formData.client_name,
-          client_email: formData.client_email,
-          client_phone: formData.client_phone,
-          service_type: formData.service_type,
-          booking_date: formData.booking_date,
-          start_time: formData.start_time,
-          end_time: formData.end_time,
-          notes: formData.notes,
-          status: 'pending'
-        }])
-        .select()
-        .maybeSingle();
-
-      if (bookingError) throw bookingError;
-
-      const { error: slotError } = await supabase
-        .from('time_slots')
-        .update({
-          is_available: false,
-          booking_id: booking?.id
-        })
-        .eq('id', selectedSlot.id);
-
-      if (slotError) throw slotError;
-
-      setMessage({ type: 'success', text: 'Booking created successfully! We will contact you shortly to confirm.' });
-
-      setFormData({
-        client_name: '',
-        client_email: '',
-        client_phone: '',
-        service_type: '',
-        booking_date: '',
-        start_time: '',
-        end_time: '',
-        notes: ''
-      });
-      setSelectedSlot(null);
-      fetchTimeSlots();
-    } catch (error) {
-      console.error('Error creating booking:', error);
-      setMessage({ type: 'error', text: 'Failed to create booking. Please try again.' });
-    } finally {
-      setSubmitting(false);
-    }
+    setFormData({
+      client_name: '',
+      client_email: '',
+      client_phone: '',
+      service_type: '',
+      notes: ''
+    });
+    setSelectedDate('');
+    setSelectedTime('');
   };
 
   const getTodayDate = () => {
@@ -202,11 +85,11 @@ export default function Booking() {
   };
 
   const formatTime = (time: string) => {
-    const [hours] = time.split(':');
+    const [hours, minutes] = time.split(':');
     const hour = parseInt(hours);
     const period = hour >= 12 ? 'PM' : 'AM';
     const displayHour = hour > 12 ? hour - 12 : hour === 0 ? 12 : hour;
-    return `${displayHour}:00 ${period}`;
+    return `${displayHour}:${minutes} ${period}`;
   };
 
   return (
@@ -252,42 +135,26 @@ export default function Booking() {
               className="w-full px-4 py-3 bg-gray-50 border-2 border-transparent focus:border-yellow-400 outline-none transition-colors text-black font-medium rounded-lg mb-6"
             />
 
-            {selectedDate && (
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <Clock className="w-6 h-6 text-blue-500" />
-                  <h3 className="text-xl font-black text-black">Available Time Slots</h3>
-                </div>
+            <div className="flex items-center gap-3 mb-4">
+              <Clock className="w-6 h-6 text-blue-500" />
+              <h3 className="text-xl font-black text-black">Select Time</h3>
+            </div>
 
-                {loading ? (
-                  <div className="flex items-center justify-center py-8">
-                    <Loader className="w-8 h-8 animate-spin text-blue-500" />
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-2 gap-3 max-h-96 overflow-y-auto">
-                    {timeSlots.map((slot) => (
-                      <button
-                        key={slot.id}
-                        onClick={() => handleSlotSelect(slot)}
-                        disabled={!slot.is_available}
-                        className={`p-3 rounded-lg font-bold text-sm transition-all ${
-                          selectedSlot?.id === slot.id
-                            ? 'bg-yellow-400 text-black'
-                            : slot.is_available
-                            ? 'bg-gray-50 text-black hover:bg-blue-100 border-2 border-transparent hover:border-blue-500'
-                            : 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-50'
-                        }`}
-                      >
-                        {formatTime(slot.start_time)}
-                        <div className="text-xs mt-1">
-                          {slot.is_available ? 'Available' : 'Booked'}
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
+            <div className="grid grid-cols-2 gap-3 max-h-96 overflow-y-auto">
+              {timeSlots.map((slot) => (
+                <button
+                  key={slot.id}
+                  onClick={() => setSelectedTime(slot.time)}
+                  className={`p-3 rounded-lg font-bold text-sm transition-all ${
+                    selectedTime === slot.time
+                      ? 'bg-yellow-400 text-black'
+                      : 'bg-gray-50 text-black hover:bg-blue-100 border-2 border-transparent hover:border-blue-500'
+                  }`}
+                >
+                  {formatTime(slot.time)}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="bg-white/95 backdrop-blur-sm rounded-lg p-8 shadow-2xl">
@@ -360,7 +227,7 @@ export default function Booking() {
                 />
               </div>
 
-              {selectedSlot && (
+              {selectedDate && selectedTime && (
                 <div className="p-4 bg-blue-50 rounded-lg border-2 border-blue-500">
                   <p className="text-sm font-bold text-blue-900">
                     Selected: {new Date(selectedDate).toLocaleDateString('en-US', {
@@ -368,24 +235,17 @@ export default function Booking() {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric'
-                    })} at {formatTime(selectedSlot.start_time)}
+                    })} at {formatTime(selectedTime)}
                   </p>
                 </div>
               )}
 
               <button
                 type="submit"
-                disabled={submitting || !selectedSlot}
+                disabled={!selectedDate || !selectedTime}
                 className="w-full bg-gradient-to-r from-blue-500 to-yellow-400 text-white py-4 font-black uppercase text-lg hover:shadow-xl transition-all duration-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
               >
-                {submitting ? (
-                  <>
-                    <Loader className="w-5 h-5 animate-spin" />
-                    Submitting...
-                  </>
-                ) : (
-                  'Confirm Booking'
-                )}
+                Confirm Booking
               </button>
             </form>
           </div>
