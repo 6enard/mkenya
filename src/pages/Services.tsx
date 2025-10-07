@@ -1,11 +1,10 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Camera, Palette, Share2, Globe, Film, Mic, Paintbrush } from 'lucide-react';
 
 export default function Services() {
-  const navigate = useNavigate();
-
   const services = [
     {
+      id: 1,
       icon: Palette,
       title: 'Logo & Identity',
       description: 'Unique brand identities',
@@ -14,6 +13,7 @@ export default function Services() {
       category: 'design'
     },
     {
+      id: 2,
       icon: Palette,
       title: 'Graphic Design',
       description: 'Eye-catching visuals',
@@ -22,6 +22,7 @@ export default function Services() {
       category: 'design'
     },
     {
+      id: 3,
       icon: Share2,
       title: 'Social Media',
       description: 'Engaging content',
@@ -30,6 +31,7 @@ export default function Services() {
       category: 'design'
     },
     {
+      id: 4,
       icon: Globe,
       title: 'Web Design',
       description: 'Digital experiences',
@@ -38,6 +40,7 @@ export default function Services() {
       category: 'design'
     },
     {
+      id: 5,
       icon: Camera,
       title: 'Photography',
       description: 'Stunning shots',
@@ -46,6 +49,7 @@ export default function Services() {
       category: 'photography'
     },
     {
+      id: 6,
       icon: Film,
       title: 'Videography',
       description: 'Compelling stories',
@@ -54,6 +58,7 @@ export default function Services() {
       category: 'video'
     },
     {
+      id: 7,
       icon: Mic,
       title: 'Audio Design',
       description: 'Soundscapes',
@@ -62,6 +67,7 @@ export default function Services() {
       category: 'video'
     },
     {
+      id: 8,
       icon: Paintbrush,
       title: 'Mural Art',
       description: 'Street art & murals',
@@ -70,10 +76,6 @@ export default function Services() {
       category: 'mural'
     }
   ];
-
-  const handleServiceClick = (category: string) => {
-    navigate(`/portfolio?filter=${category}`);
-  };
 
   return (
     <section className="pt-24 sm:pt-32 py-16 sm:py-24 px-4 bg-gray-50 min-h-screen">
@@ -94,12 +96,12 @@ export default function Services() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {services.map((service, index) => (
-            <button
-              key={index}
-              onClick={() => handleServiceClick(service.category)}
+          {services.map((service) => (
+            <Link
+              key={service.id}
+              to={`/services/${service.id}`}
               style={{ animationDelay: `${service.delay}ms` }}
-              className={`group relative bg-white p-6 sm:p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-l-4 text-left cursor-pointer ${
+              className={`group relative bg-white p-6 sm:p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-l-4 cursor-pointer ${
                 service.color === 'yellow' ? 'border-yellow-400' : 'border-blue-500'
               }`}
             >
@@ -120,7 +122,7 @@ export default function Services() {
               <div className={`absolute bottom-0 left-0 w-full h-1 ${
                 service.color === 'yellow' ? 'bg-yellow-400' : 'bg-blue-500'
               } transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}></div>
-            </button>
+            </Link>
           ))}
         </div>
       </div>

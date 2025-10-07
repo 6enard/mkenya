@@ -1,4 +1,5 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MapPin } from 'lucide-react';
+import Map from '../components/Map';
 
 export default function Contact() {
   return (
@@ -40,6 +41,16 @@ export default function Contact() {
                 <div>
                   <div className="text-xs uppercase font-bold text-gray-400 mb-1">Phone</div>
                   <div className="text-base sm:text-lg font-bold">+254 XXX XXX XXX</div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-yellow-400 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="text-black" size={24} strokeWidth={2.5} />
+                </div>
+                <div>
+                  <div className="text-xs uppercase font-bold text-gray-400 mb-1">Location</div>
+                  <div className="text-base sm:text-lg font-bold">mkenya studio, Nairobi</div>
                 </div>
               </div>
             </div>
@@ -93,6 +104,18 @@ export default function Contact() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
+          </div>
+        </div>
+
+        <div className="mt-16">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl sm:text-4xl font-black mb-4">
+              FIND <span className="text-yellow-400">US HERE</span>
+            </h3>
+            <p className="text-gray-300">Visit our studio in Nairobi</p>
+          </div>
+          <div className="bg-white rounded-lg overflow-hidden shadow-2xl">
+            <Map />
           </div>
         </div>
       </div>

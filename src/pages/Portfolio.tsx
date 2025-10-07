@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 export default function Portfolio() {
@@ -14,14 +14,14 @@ export default function Portfolio() {
   }, [searchParams]);
 
   const portfolio = [
-    { id: 1, category: 'photography', image: 'https://images.pexels.com/photos/1152854/pexels-photo-1152854.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Urban Portraits', span: 'row-span-2' },
-    { id: 2, category: 'design', image: 'https://images.pexels.com/photos/1047540/pexels-photo-1047540.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Brand Identity', span: '' },
-    { id: 3, category: 'video', image: 'https://images.pexels.com/photos/66134/pexels-photo-66134.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Commercial', span: 'col-span-2' },
-    { id: 4, category: 'mural', image: 'https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Street Art', span: '' },
-    { id: 5, category: 'photography', image: 'https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Fashion', span: 'row-span-2' },
-    { id: 6, category: 'design', image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Digital', span: '' },
-    { id: 7, category: 'mural', image: 'https://images.pexels.com/photos/1109354/pexels-photo-1109354.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Graffiti', span: 'col-span-2' },
-    { id: 8, category: 'photography', image: 'https://images.pexels.com/photos/2882509/pexels-photo-2882509.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Editorial', span: '' }
+    { id: 1, category: 'photography', image: 'https://images.pexels.com/photos/1152854/pexels-photo-1152854.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Urban Portraits', span: 'row-span-2', description: 'Capturing the essence of city life through intimate portrait photography' },
+    { id: 2, category: 'design', image: 'https://images.pexels.com/photos/1047540/pexels-photo-1047540.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Brand Identity', span: '', description: 'Complete brand identity system for modern businesses' },
+    { id: 3, category: 'video', image: 'https://images.pexels.com/photos/66134/pexels-photo-66134.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Commercial', span: 'col-span-2', description: 'High-quality commercial video production for brands' },
+    { id: 4, category: 'mural', image: 'https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Street Art', span: '', description: 'Large-scale murals transforming urban spaces' },
+    { id: 5, category: 'photography', image: 'https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Fashion', span: 'row-span-2', description: 'Editorial fashion photography for magazines and brands' },
+    { id: 6, category: 'design', image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Digital', span: '', description: 'Digital design solutions for web and mobile' },
+    { id: 7, category: 'mural', image: 'https://images.pexels.com/photos/1109354/pexels-photo-1109354.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Graffiti', span: 'col-span-2', description: 'Contemporary graffiti art with bold statements' },
+    { id: 8, category: 'photography', image: 'https://images.pexels.com/photos/2882509/pexels-photo-2882509.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Editorial', span: '', description: 'Editorial photography for publications and media' }
   ];
 
   const filteredPortfolio = activeFilter === 'all'
@@ -67,8 +67,9 @@ export default function Portfolio() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[250px] sm:auto-rows-[300px] gap-4 sm:gap-6">
           {filteredPortfolio.map((item) => (
-            <div
+            <Link
               key={item.id}
+              to={`/portfolio/${item.id}`}
               className={`group relative overflow-hidden cursor-pointer ${item.span}`}
             >
               <img
@@ -90,7 +91,7 @@ export default function Portfolio() {
               </div>
 
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-blue-500 transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
