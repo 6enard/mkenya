@@ -89,20 +89,28 @@ function App() {
     <div className="min-h-screen bg-white">
       <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
-            <div className="flex-shrink-0">
-              <div className="flex items-center gap-3">
-                <div className="relative">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-black relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-blue-500 opacity-20"></div>
-                    <span className="absolute inset-0 flex items-center justify-center text-white font-black text-xl sm:text-2xl">M</span>
-                  </div>
-                  <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-yellow-400"></div>
+          <div className="flex items-center justify-center lg:justify-between h-16 sm:h-20 relative">
+            <div className="flex-shrink-0 absolute left-0 lg:relative">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="lg:hidden text-black"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-black via-red-600 to-green-600 relative overflow-hidden">
+                  <span className="absolute inset-0 flex items-center justify-center text-white font-black text-xl sm:text-2xl">M</span>
                 </div>
-                <div>
-                  <h1 className="text-xl sm:text-2xl font-black tracking-tighter text-black">MKENYA</h1>
-                  <p className="text-[9px] sm:text-xs text-blue-500 font-bold tracking-widest -mt-1">STUDIO</p>
-                </div>
+                <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-yellow-400"></div>
+              </div>
+              <div>
+                <h1 className="text-xl sm:text-2xl font-black tracking-tighter bg-gradient-to-r from-black via-red-600 via-green-600 to-black bg-clip-text text-transparent">
+                  MKENYA
+                </h1>
+                <p className="text-[9px] sm:text-xs text-blue-500 font-bold tracking-widest -mt-1">STUDIO</p>
               </div>
             </div>
 
@@ -121,13 +129,6 @@ function App() {
                 Get Started
               </button>
             </div>
-
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden text-black"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
           </div>
         </div>
 
@@ -443,14 +444,15 @@ function App() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="w-12 h-12 bg-black relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-blue-500 opacity-20"></div>
+                <div className="w-12 h-12 bg-gradient-to-br from-black via-red-600 to-green-600 relative overflow-hidden">
                   <span className="absolute inset-0 flex items-center justify-center text-white font-black text-2xl">M</span>
                 </div>
                 <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-yellow-400"></div>
               </div>
               <div>
-                <h3 className="text-2xl font-black text-black">MKENYA</h3>
+                <h3 className="text-2xl font-black bg-gradient-to-r from-black via-red-600 via-green-600 to-black bg-clip-text text-transparent">
+                  MKENYA
+                </h3>
                 <p className="text-xs text-blue-500 font-bold tracking-widest -mt-1">STUDIO</p>
               </div>
             </div>
