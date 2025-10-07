@@ -101,27 +101,23 @@ export default function Services() {
               key={service.id}
               to={`/services/${service.id}`}
               style={{ animationDelay: `${service.delay}ms` }}
-              className={`group relative bg-white p-6 sm:p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-l-4 cursor-pointer ${
-                service.color === 'yellow' ? 'border-yellow-400' : 'border-blue-500'
-              }`}
+              className="group relative bg-white p-6 sm:p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-l-4 cursor-pointer border-gray-200 hover:border-transparent overflow-hidden"
             >
-              <div className={`w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-6 ${
-                service.color === 'yellow' ? 'bg-yellow-400/10' : 'bg-blue-500/10'
-              } group-hover:scale-110 transition-transform duration-300`}>
-                <service.icon
-                  className={`w-7 h-7 sm:w-8 sm:h-8 ${
-                    service.color === 'yellow' ? 'text-yellow-400' : 'text-blue-500'
-                  }`}
-                  strokeWidth={2}
-                />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div className="relative z-10">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-6 bg-gray-100 group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300">
+                  <service.icon
+                    className="w-7 h-7 sm:w-8 sm:h-8 text-gray-700 group-hover:text-white transition-colors duration-300"
+                    strokeWidth={2}
+                  />
+                </div>
+
+                <h3 className="text-lg sm:text-xl font-black mb-2 text-black group-hover:text-white uppercase transition-colors duration-300">{service.title}</h3>
+                <p className="text-sm sm:text-base text-gray-600 group-hover:text-white/90 transition-colors duration-300">{service.description}</p>
               </div>
 
-              <h3 className="text-lg sm:text-xl font-black mb-2 text-black uppercase">{service.title}</h3>
-              <p className="text-sm sm:text-base text-gray-600">{service.description}</p>
-
-              <div className={`absolute bottom-0 left-0 w-full h-1 ${
-                service.color === 'yellow' ? 'bg-yellow-400' : 'bg-blue-500'
-              } transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}></div>
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </Link>
           ))}
         </div>
