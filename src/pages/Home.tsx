@@ -43,6 +43,7 @@ export default function Home() {
   return (
     <div>
       <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-yellow-400/10 to-blue-500/30"></div>
         <div className="absolute top-20 right-0 w-72 h-72 bg-yellow-400 rounded-full blur-3xl opacity-20"></div>
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-10"></div>
 
