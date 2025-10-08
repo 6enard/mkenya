@@ -179,27 +179,23 @@ export default function Home() {
                 key={index}
                 to={`/services/${service.id}`}
                 style={{ animationDelay: `${service.delay}ms` }}
-                className={`group relative bg-white p-6 sm:p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-l-4 cursor-pointer ${
-                  service.color === 'yellow' ? 'border-yellow-400' : 'border-blue-500'
-                }`}
+                className="group relative bg-white p-6 sm:p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-l-4 cursor-pointer border-gray-200 hover:border-transparent overflow-hidden"
               >
-                <div className={`w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-6 ${
-                  service.color === 'yellow' ? 'bg-yellow-400/10' : 'bg-blue-500/10'
-                } group-hover:scale-110 transition-transform duration-300`}>
-                  <service.icon
-                    className={`w-7 h-7 sm:w-8 sm:h-8 ${
-                      service.color === 'yellow' ? 'text-yellow-400' : 'text-blue-500'
-                    }`}
-                    strokeWidth={2}
-                  />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="relative z-10">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-6 bg-gray-100 group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300">
+                    <service.icon
+                      className="w-7 h-7 sm:w-8 sm:h-8 text-gray-700 group-hover:text-white transition-colors duration-300"
+                      strokeWidth={2}
+                    />
+                  </div>
+
+                  <h3 className="text-lg sm:text-xl font-black mb-2 text-black group-hover:text-white uppercase transition-colors duration-300">{service.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 group-hover:text-white/90 transition-colors duration-300">{service.description}</p>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-black mb-2 text-black uppercase">{service.title}</h3>
-                <p className="text-sm sm:text-base text-gray-600">{service.description}</p>
-
-                <div className={`absolute bottom-0 left-0 w-full h-1 ${
-                  service.color === 'yellow' ? 'bg-yellow-400' : 'bg-blue-500'
-                } transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}></div>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
               </Link>
             ))}
           </div>
@@ -232,7 +228,7 @@ export default function Home() {
               <Link
                 key={item.id}
                 to={`/portfolio/${item.id}`}
-                className="group relative overflow-hidden cursor-pointer h-[300px]"
+                className="group relative overflow-hidden cursor-pointer h-[300px] rounded-lg shadow-md hover:shadow-2xl transition-shadow duration-500"
               >
                 <img
                   src={item.image}
@@ -240,16 +236,19 @@ export default function Home() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <div className="text-yellow-400 text-xs sm:text-sm font-bold uppercase mb-2">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/80 to-yellow-400/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="text-yellow-400 group-hover:text-white text-xs sm:text-sm font-bold uppercase mb-2 transition-colors duration-300">
                       {item.category}
                     </div>
                     <h3 className="text-white text-xl sm:text-2xl font-black">{item.title}</h3>
                   </div>
                 </div>
 
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-blue-500 transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 via-blue-500 to-yellow-400 transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-yellow-400 to-blue-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
               </Link>
             ))}
           </div>
