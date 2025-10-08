@@ -26,6 +26,7 @@ export default function Home() {
   };
   const services = [
     {
+      id: 1,
       icon: Palette,
       title: 'Logo & Identity',
       description: 'Unique brand identities',
@@ -33,6 +34,7 @@ export default function Home() {
       delay: '0'
     },
     {
+      id: 2,
       icon: Palette,
       title: 'Graphic Design',
       description: 'Eye-catching visuals',
@@ -40,6 +42,7 @@ export default function Home() {
       delay: '100'
     },
     {
+      id: 3,
       icon: Share2,
       title: 'Social Media',
       description: 'Engaging content',
@@ -47,6 +50,7 @@ export default function Home() {
       delay: '200'
     },
     {
+      id: 4,
       icon: Globe,
       title: 'Web Design',
       description: 'Digital experiences',
@@ -171,10 +175,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
             {services.map((service, index) => (
-              <div
+              <Link
                 key={index}
+                to={`/services/${service.id}`}
                 style={{ animationDelay: `${service.delay}ms` }}
-                className={`group relative bg-white p-6 sm:p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-l-4 ${
+                className={`group relative bg-white p-6 sm:p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-l-4 cursor-pointer ${
                   service.color === 'yellow' ? 'border-yellow-400' : 'border-blue-500'
                 }`}
               >
@@ -195,7 +200,7 @@ export default function Home() {
                 <div className={`absolute bottom-0 left-0 w-full h-1 ${
                   service.color === 'yellow' ? 'bg-yellow-400' : 'bg-blue-500'
                 } transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}></div>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -224,8 +229,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
             {portfolioHighlights.map((item) => (
-              <div
+              <Link
                 key={item.id}
+                to={`/portfolio/${item.id}`}
                 className="group relative overflow-hidden cursor-pointer h-[300px]"
               >
                 <img
@@ -244,7 +250,7 @@ export default function Home() {
                 </div>
 
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-blue-500 transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-              </div>
+              </Link>
             ))}
           </div>
 
