@@ -20,7 +20,7 @@ const projectsData = [
   {
     id: 2,
     category: 'social-media',
-    image: 'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Zp75KbuW8HS3lR1JxQR3XGqutHd1McS2Gg&s',
     title: 'Momentum Credit',
     description: 'Year-long social media contract ensuring consistent brand application across sub-brands',
     fullDescription: 'Engaged on a year-long social media contract to ensure that the newly created brand is consistently applied across all the different sub-brands. Delivered 20 artworks for each of the 5 sub-brands on the 15th of every month to ensure ample time for approvals and corrections. The work included stock photo selection, stitching and manipulation, delivery of interactive carousels, and captivating holiday-themed posts.',
