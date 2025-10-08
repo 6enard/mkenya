@@ -63,7 +63,7 @@ export default function Home() {
     { id: 1, category: 'design', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjBjWMxOl-BpELQYf6ZHTiIsbEpK3gICH2wg&s', title: 'Standard Chartered Bank' },
     { id: 2, category: 'social-media', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Zp75KbuW8HS3lR1JxQR3XGqutHd1McS2Gg&s', title: 'Momentum Credit' },
     { id: 3, category: 'branding', image: 'https://pbs.twimg.com/profile_images/1395692407753121797/_07tmlXL_400x400.jpg', title: 'Snow International' },
-    { id: 6, category: 'branding', image: 'https://images.pexels.com/photos/6863250/pexels-photo-6863250.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Lemik Leasing Ltd' }
+    { id: 6, category: 'branding', image: 'https://lak.co.ke/wp-content/uploads/2024/07/LEMIK.jpg', title: 'Lemik Leasing Ltd' }
   ];
 
   return (
