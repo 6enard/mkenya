@@ -28,7 +28,7 @@ export default function Navbar() {
               <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-yellow-400"></div>
             </div>
             <div>
-              <h1 className="text-xl sm:text-2xl font-black tracking-tighter bg-gradient-to-r from-black via-red-600 via-green-600 to-black bg-clip-text text-transparent">
+              <h1 className="text-xl sm:text-2xl font-black tracking-tighter bg-gradient-to-r from-black via-red-600 via-green-600  bg-clip-text text-transparent">
                 MKENYA
               </h1>
               <p className="text-[9px] sm:text-xs text-blue-500 font-bold tracking-widest -mt-1">STUDIO</p>
