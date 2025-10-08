@@ -61,7 +61,7 @@ export default function Home() {
 
   const portfolioHighlights = [
     { id: 1, category: 'design', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjBjWMxOl-BpELQYf6ZHTiIsbEpK3gICH2wg&s', title: 'Standard Chartered Bank' },
-    { id: 2, category: 'social-media', image: 'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Momentum Credit' },
+    { id: 2, category: 'social-media', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Zp75KbuW8HS3lR1JxQR3XGqutHd1McS2Gg&s', title: 'Momentum Credit' },
     { id: 3, category: 'branding', image: 'https://images.pexels.com/photos/8297488/pexels-photo-8297488.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Snow International' },
     { id: 6, category: 'branding', image: 'https://images.pexels.com/photos/6863250/pexels-photo-6863250.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Lemik Leasing Ltd' }
   ];
