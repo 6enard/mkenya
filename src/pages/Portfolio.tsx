@@ -14,7 +14,7 @@ export default function Portfolio() {
   }, [searchParams]);
 
   const portfolio = [
-    { id: 1, category: 'design', image: 'https://images.pexels.com/photos/1387037/pexels-photo-1387037.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Standard Chartered Bank', span: 'row-span-2', description: 'Spatial design for activation agency managing annual reports, showcase booths, and VIP areas' },
+    { id: 1, category: 'design', image: 'https://images.africanfinancials.com/ke-scbk-logo-min.png', title: 'Standard Chartered Bank', span: 'row-span-2', description: 'Spatial design for activation agency managing annual reports, showcase booths, and VIP areas' },
     { id: 2, category: 'social-media', image: 'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Momentum Credit', span: 'col-span-2', description: 'Year-long social media contract ensuring consistent brand application across sub-brands' },
     { id: 3, category: 'branding', image: 'https://images.pexels.com/photos/8297488/pexels-photo-8297488.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Snow International', span: '', description: 'Complete brand communication redesign for chemical company across African countries' },
     { id: 4, category: 'branding', image: 'https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'PureDrop KE', span: '', description: 'Full branding exercise for a new water purification company' },
