@@ -35,7 +35,7 @@ const projectsData = [
   {
     id: 3,
     category: 'branding',
-    image: 'https://images.pexels.com/photos/8297488/pexels-photo-8297488.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: 'https://pbs.twimg.com/profile_images/1395692407753121797/_07tmlXL_400x400.jpg',
     title: 'Snow International',
     description: 'Complete brand communication redesign for chemical company across African countries',
     fullDescription: 'Engaged by a chemical company based in various African countries to assist with fixing their various brand communications. Comprehensive deliverables included brand design, product labels, flyers and posters, social media content, and dealer store design. The rebrand helped establish a cohesive identity across multiple markets and standardized their visual presence throughout the region.',
