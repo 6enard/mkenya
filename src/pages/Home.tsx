@@ -60,10 +60,10 @@ export default function Home() {
   ];
 
   const portfolioHighlights = [
-    { id: 1, category: 'photography', image: 'https://images.pexels.com/photos/1152854/pexels-photo-1152854.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Urban Portraits' },
-    { id: 2, category: 'design', image: 'https://images.pexels.com/photos/1047540/pexels-photo-1047540.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Brand Identity' },
-    { id: 3, category: 'video', image: 'https://images.pexels.com/photos/66134/pexels-photo-66134.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Commercial' },
-    { id: 4, category: 'mural', image: 'https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Street Art' }
+    { id: 1, category: 'design', image: 'https://images.pexels.com/photos/1387037/pexels-photo-1387037.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Standard Chartered Bank' },
+    { id: 2, category: 'social-media', image: 'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Momentum Credit' },
+    { id: 3, category: 'branding', image: 'https://images.pexels.com/photos/8297488/pexels-photo-8297488.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Snow International' },
+    { id: 6, category: 'branding', image: 'https://images.pexels.com/photos/6863250/pexels-photo-6863250.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Lemik Leasing Ltd' }
   ];
 
   return (
