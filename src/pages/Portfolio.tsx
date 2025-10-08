@@ -15,7 +15,7 @@ export default function Portfolio() {
 
   const portfolio = [
     { id: 1, category: 'design', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjBjWMxOl-BpELQYf6ZHTiIsbEpK3gICH2wg&s', title: 'Standard Chartered Bank', span: 'row-span-2', description: 'Spatial design for activation agency managing annual reports, showcase booths, and VIP areas' },
-    { id: 2, category: 'social-media', image: 'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Momentum Credit', span: 'col-span-2', description: 'Year-long social media contract ensuring consistent brand application across sub-brands' },
+    { id: 2, category: 'social-media', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Zp75KbuW8HS3lR1JxQR3XGqutHd1McS2Gg&s', title: 'Momentum Credit', span: 'col-span-2', description: 'Year-long social media contract ensuring consistent brand application across sub-brands' },
     { id: 3, category: 'branding', image: 'https://images.pexels.com/photos/8297488/pexels-photo-8297488.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Snow International', span: '', description: 'Complete brand communication redesign for chemical company across African countries' },
     { id: 4, category: 'branding', image: 'https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'PureDrop KE', span: '', description: 'Full branding exercise for a new water purification company' },
     { id: 5, category: 'design', image: 'https://images.pexels.com/photos/3760072/pexels-photo-3760072.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Chemraw EA LTD', span: 'row-span-2', description: 'Company profile design for chemical manufacturing and distribution' },
