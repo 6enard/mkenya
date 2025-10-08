@@ -5,7 +5,7 @@ const projectsData = [
   {
     id: 1,
     category: 'design',
-    image: 'https://images.pexels.com/photos/1387037/pexels-photo-1387037.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: 'https://images.africanfinancials.com/ke-scbk-logo-min.png',
     title: 'Standard Chartered Bank',
     description: 'Spatial design for activation agency managing annual reports, showcase booths, and VIP areas',
     fullDescription: 'Engaged on a project basis to deliver spatial design for the activation agency. Managed the print output to ensure on-brand color rendition. Delivered the annual reports events 2021-2023, showcase booths as well as the VIP area for SC Nairobi Marathon 2022 & 2023. The work required precise attention to brand guidelines and coordination with multiple stakeholders to create immersive brand experiences.',
