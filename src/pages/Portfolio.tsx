@@ -22,7 +22,7 @@ export default function Portfolio() {
     { id: 6, category: 'branding', image: 'https://images.pexels.com/photos/6863250/pexels-photo-6863250.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Lemik Leasing Ltd', span: '', description: 'Complete brand architecture from logo to website for female-founded company' },
     { id: 7, category: 'branding', image: 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Aspirelle Business', span: '', description: 'Brand design for financial training practice targeted at women' },
     { id: 8, category: 'legal', image: 'https://images.pexels.com/photos/5668772/pexels-photo-5668772.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Banja & Co. Advocates', span: 'col-span-2', description: 'Complete branding and portfolio design for a legal practice' },
-    { id: 9, category: 'design', image: 'https://images.pexels.com/photos/6069509/pexels-photo-6069509.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Arimis', span: '', description: 'Self-initiated rebrand project for the famous Arimis brand' }
+    { id: 9, category: 'design', image: 'https://cdn.mafrservices.com/sys-master-root/h0e/hb8/12456646672414/37100_Main.jpg', title: 'Arimis', span: '', description: 'Self-initiated rebrand project for the famous Arimis brand' }
   ];
 
   const filteredPortfolio = activeFilter === 'all'
