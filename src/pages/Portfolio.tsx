@@ -14,14 +14,15 @@ export default function Portfolio() {
   }, [searchParams]);
 
   const portfolio = [
-    { id: 1, category: 'photography', image: 'https://images.pexels.com/photos/1152854/pexels-photo-1152854.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Urban Portraits', span: 'row-span-2', description: 'Capturing the essence of city life through intimate portrait photography' },
-    { id: 2, category: 'design', image: 'https://images.pexels.com/photos/1047540/pexels-photo-1047540.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Brand Identity', span: '', description: 'Complete brand identity system for modern businesses' },
-    { id: 3, category: 'video', image: 'https://images.pexels.com/photos/66134/pexels-photo-66134.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Commercial', span: 'col-span-2', description: 'High-quality commercial video production for brands' },
-    { id: 4, category: 'mural', image: 'https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Street Art', span: '', description: 'Large-scale murals transforming urban spaces' },
-    { id: 5, category: 'photography', image: 'https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Fashion', span: 'row-span-2', description: 'Editorial fashion photography for magazines and brands' },
-    { id: 6, category: 'design', image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Digital', span: '', description: 'Digital design solutions for web and mobile' },
-    { id: 7, category: 'mural', image: 'https://images.pexels.com/photos/1109354/pexels-photo-1109354.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Graffiti', span: 'col-span-2', description: 'Contemporary graffiti art with bold statements' },
-    { id: 8, category: 'photography', image: 'https://images.pexels.com/photos/2882509/pexels-photo-2882509.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Editorial', span: '', description: 'Editorial photography for publications and media' }
+    { id: 1, category: 'design', image: 'https://images.pexels.com/photos/1387037/pexels-photo-1387037.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Standard Chartered Bank', span: 'row-span-2', description: 'Spatial design for activation agency managing annual reports, showcase booths, and VIP areas' },
+    { id: 2, category: 'social-media', image: 'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Momentum Credit', span: 'col-span-2', description: 'Year-long social media contract ensuring consistent brand application across sub-brands' },
+    { id: 3, category: 'branding', image: 'https://images.pexels.com/photos/8297488/pexels-photo-8297488.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Snow International', span: '', description: 'Complete brand communication redesign for chemical company across African countries' },
+    { id: 4, category: 'branding', image: 'https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'PureDrop KE', span: '', description: 'Full branding exercise for a new water purification company' },
+    { id: 5, category: 'design', image: 'https://images.pexels.com/photos/3760072/pexels-photo-3760072.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Chemraw EA LTD', span: 'row-span-2', description: 'Company profile design for chemical manufacturing and distribution' },
+    { id: 6, category: 'branding', image: 'https://images.pexels.com/photos/6863250/pexels-photo-6863250.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Lemik Leasing Ltd', span: '', description: 'Complete brand architecture from logo to website for female-founded company' },
+    { id: 7, category: 'branding', image: 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Aspirelle Business', span: '', description: 'Brand design for financial training practice targeted at women' },
+    { id: 8, category: 'legal', image: 'https://images.pexels.com/photos/5668772/pexels-photo-5668772.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Banja & Co. Advocates', span: 'col-span-2', description: 'Complete branding and portfolio design for a legal practice' },
+    { id: 9, category: 'design', image: 'https://images.pexels.com/photos/6069509/pexels-photo-6069509.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Arimis', span: '', description: 'Self-initiated rebrand project for the famous Arimis brand' }
   ];
 
   const filteredPortfolio = activeFilter === 'all'
@@ -49,7 +50,7 @@ export default function Portfolio() {
           </h2>
 
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8">
-            {['all', 'photography', 'design', 'video', 'mural'].map((filter) => (
+            {['all', 'branding', 'design', 'social-media', 'legal'].map((filter) => (
               <button
                 key={filter}
                 onClick={() => handleFilterChange(filter)}

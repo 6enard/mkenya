@@ -4,122 +4,137 @@ import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
 const projectsData = [
   {
     id: 1,
-    category: 'photography',
-    image: 'https://images.pexels.com/photos/1152854/pexels-photo-1152854.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    title: 'Urban Portraits',
-    description: 'Capturing the essence of city life through intimate portrait photography',
-    fullDescription: 'This project explores the raw beauty of urban life through candid and styled portraits. Shot across multiple cities, we captured the diverse stories of individuals who make up the modern metropolis. Using natural light and urban backdrops, each photograph tells a unique story of resilience, creativity, and humanity.',
-    client: 'Urban Magazine',
-    date: 'January 2024',
+    category: 'design',
+    image: 'https://images.pexels.com/photos/1387037/pexels-photo-1387037.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    title: 'Standard Chartered Bank',
+    description: 'Spatial design for activation agency managing annual reports, showcase booths, and VIP areas',
+    fullDescription: 'Engaged on a project basis to deliver spatial design for the activation agency. Managed the print output to ensure on-brand color rendition. Delivered the annual reports events 2021-2023, showcase booths as well as the VIP area for SC Nairobi Marathon 2022 & 2023. The work required precise attention to brand guidelines and coordination with multiple stakeholders to create immersive brand experiences.',
+    client: 'Standard Chartered Bank',
+    date: '2021-2023',
     gallery: [
-      'https://images.pexels.com/photos/1152854/pexels-photo-1152854.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1587009/pexels-photo-1587009.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://images.pexels.com/photos/1387037/pexels-photo-1387037.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/2306281/pexels-photo-2306281.jpeg?auto=compress&cs=tinysrgb&w=800'
     ]
   },
   {
     id: 2,
-    category: 'design',
-    image: 'https://images.pexels.com/photos/1047540/pexels-photo-1047540.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    title: 'Brand Identity',
-    description: 'Complete brand identity system for modern businesses',
-    fullDescription: 'A comprehensive brand identity project for a tech startup. We developed everything from logo design to brand guidelines, creating a cohesive visual language that represents innovation and reliability. The color palette and typography were carefully selected to convey professionalism while maintaining approachability.',
-    client: 'TechStart Inc.',
-    date: 'February 2024',
+    category: 'social-media',
+    image: 'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    title: 'Momentum Credit',
+    description: 'Year-long social media contract ensuring consistent brand application across sub-brands',
+    fullDescription: 'Engaged on a year-long social media contract to ensure that the newly created brand is consistently applied across all the different sub-brands. Delivered 20 artworks for each of the 5 sub-brands on the 15th of every month to ensure ample time for approvals and corrections. The work included stock photo selection, stitching and manipulation, delivery of interactive carousels, and captivating holiday-themed posts.',
+    client: 'Momentum Credit',
+    date: '2023-2024',
     gallery: [
-      'https://images.pexels.com/photos/1047540/pexels-photo-1047540.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/6120205/pexels-photo-6120205.jpeg?auto=compress&cs=tinysrgb&w=800'
     ]
   },
   {
     id: 3,
-    category: 'video',
-    image: 'https://images.pexels.com/photos/66134/pexels-photo-66134.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    title: 'Commercial',
-    description: 'High-quality commercial video production for brands',
-    fullDescription: 'A dynamic commercial video campaign showcasing product innovation and brand values. Shot in 4K with cinematic color grading, this project combines storytelling with stunning visuals. We handled everything from concept development to final post-production, delivering content optimized for both digital and broadcast platforms.',
-    client: 'Global Brands Co.',
-    date: 'March 2024',
+    category: 'branding',
+    image: 'https://images.pexels.com/photos/8297488/pexels-photo-8297488.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    title: 'Snow International',
+    description: 'Complete brand communication redesign for chemical company across African countries',
+    fullDescription: 'Engaged by a chemical company based in various African countries to assist with fixing their various brand communications. Comprehensive deliverables included brand design, product labels, flyers and posters, social media content, and dealer store design. The rebrand helped establish a cohesive identity across multiple markets and standardized their visual presence throughout the region.',
+    client: 'Snow International',
+    date: '2023',
     gallery: [
-      'https://images.pexels.com/photos/66134/pexels-photo-66134.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1117132/pexels-photo-1117132.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2873486/pexels-photo-2873486.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://images.pexels.com/photos/8297488/pexels-photo-8297488.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/5632382/pexels-photo-5632382.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/4226140/pexels-photo-4226140.jpeg?auto=compress&cs=tinysrgb&w=800'
     ]
   },
   {
     id: 4,
-    category: 'mural',
-    image: 'https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    title: 'Street Art',
-    description: 'Large-scale murals transforming urban spaces',
-    fullDescription: 'A large-scale mural project that transformed a bare city wall into a vibrant piece of public art. Working with weatherproof materials and bold colors, we created an artwork that celebrates community diversity and cultural heritage. The mural has become a landmark and popular photo spot in the neighborhood.',
-    client: 'City Arts Council',
-    date: 'April 2024',
+    category: 'branding',
+    image: 'https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    title: 'PureDrop KE',
+    description: 'Full branding exercise for a new water purification company',
+    fullDescription: 'Engaged on a complete branding exercise for a new water purification company. Deliverables included logo design, accompanying brand assets, communication design, and flyers and posters. The clean, modern aesthetic reflects the purity and quality of their water purification solutions, creating a trustworthy brand presence in the market.',
+    client: 'PureDrop KE',
+    date: '2023',
     gallery: [
-      'https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1646953/pexels-photo-1646953.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1839919/pexels-photo-1839919.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1458671/pexels-photo-1458671.jpeg?auto=compress&cs=tinysrgb&w=800'
     ]
   },
   {
     id: 5,
-    category: 'photography',
-    image: 'https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    title: 'Fashion',
-    description: 'Editorial fashion photography for magazines and brands',
-    fullDescription: 'High-fashion editorial shoot featuring bold styling and creative concepts. Shot on location with a team of professional stylists and makeup artists, this project pushed creative boundaries while maintaining commercial appeal. The images were featured in international fashion publications and brand campaigns.',
-    client: 'Fashion Forward Magazine',
-    date: 'May 2024',
+    category: 'design',
+    image: 'https://images.pexels.com/photos/3760072/pexels-photo-3760072.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    title: 'Chemraw EA LTD',
+    description: 'Company profile design for chemical manufacturing and distribution',
+    fullDescription: 'Created a comprehensive company profile for a chemical manufacturing and distributor of international chemicals. The project included document layout design and professional photography to showcase their facilities and products. The resulting profile presents a professional image that builds trust with international partners and clearly communicates their capabilities.',
+    client: 'Chemraw EA LTD',
+    date: '2023',
     gallery: [
-      'https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://images.pexels.com/photos/3760072/pexels-photo-3760072.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800'
     ]
   },
   {
     id: 6,
-    category: 'design',
-    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    title: 'Digital',
-    description: 'Digital design solutions for web and mobile',
-    fullDescription: 'A complete digital experience design for a mobile-first application. We crafted intuitive user interfaces with a focus on accessibility and user experience. The design system includes custom iconography, responsive layouts, and micro-interactions that enhance usability across all devices.',
-    client: 'AppWorks Studio',
-    date: 'June 2024',
+    category: 'branding',
+    image: 'https://images.pexels.com/photos/6863250/pexels-photo-6863250.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    title: 'Lemik Leasing Ltd',
+    description: 'Complete brand architecture from logo to website for female-founded company',
+    fullDescription: 'Engaged by a female founder to help craft her brand and create a solid foundation through all the creative touchpoints. Comprehensive deliverables included logo design, accompanying brand assets, communication collateral, website design, and LinkedIn brand building. The project established a strong, professional presence in the leasing industry while maintaining an approachable, modern aesthetic.',
+    client: 'Lemik Leasing Ltd',
+    date: '2024',
     gallery: [
-      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/326502/pexels-photo-326502.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://images.pexels.com/photos/6863250/pexels-photo-6863250.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/6863332/pexels-photo-6863332.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/5668772/pexels-photo-5668772.jpeg?auto=compress&cs=tinysrgb&w=800'
     ]
   },
   {
     id: 7,
-    category: 'mural',
-    image: 'https://images.pexels.com/photos/1109354/pexels-photo-1109354.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    title: 'Graffiti',
-    description: 'Contemporary graffiti art with bold statements',
-    fullDescription: 'A contemporary graffiti project that merges traditional street art techniques with modern design principles. Created for an urban renewal initiative, this piece uses bold typography and vibrant colors to make a powerful statement. The work respects graffiti culture while bringing it into a legitimate public art context.',
-    client: 'Urban Development Corp',
-    date: 'July 2024',
+    category: 'branding',
+    image: 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    title: 'Aspirelle Business',
+    description: 'Brand design for financial training practice targeted at women',
+    fullDescription: 'Engaged on a branding exercise for a financial training practice targeted at women. They needed a brand that was able to capture their essence and empower their audience. Deliverables included logo design, accompanying brand assets, and portfolio design. The warm, approachable branding reflects their mission to make financial education accessible and empowering for women.',
+    client: 'Aspirelle Business',
+    date: '2024',
     gallery: [
-      'https://images.pexels.com/photos/1109354/pexels-photo-1109354.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1574643/pexels-photo-1574643.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1187766/pexels-photo-1187766.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/6120213/pexels-photo-6120213.jpeg?auto=compress&cs=tinysrgb&w=800'
     ]
   },
   {
     id: 8,
-    category: 'photography',
-    image: 'https://images.pexels.com/photos/2882509/pexels-photo-2882509.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    title: 'Editorial',
-    description: 'Editorial photography for publications and media',
-    fullDescription: 'Professional editorial photography for a lifestyle publication. This series combines artistic composition with journalistic storytelling, documenting modern living spaces and the people who inhabit them. Each image was carefully crafted to support the written narrative while standing alone as a piece of visual art.',
-    client: 'Lifestyle Today',
-    date: 'August 2024',
+    category: 'legal',
+    image: 'https://images.pexels.com/photos/5668772/pexels-photo-5668772.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    title: 'Banja & Co. Advocates',
+    description: 'Complete branding and portfolio design for a legal practice',
+    fullDescription: 'Engaged by the name partner on a comprehensive branding exercise for a legal practice. They needed a strong brand and a well-laid out portfolio. Deliverables included logo design, typography and iconography, portfolio design, and website design. The sophisticated branding conveys professionalism and trustworthiness essential for a legal practice while standing out in a competitive market.',
+    client: 'Banja & Co. Advocates',
+    date: '2024',
     gallery: [
-      'https://images.pexels.com/photos/2882509/pexels-photo-2882509.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3184311/pexels-photo-3184311.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://images.pexels.com/photos/5668772/pexels-photo-5668772.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/4427430/pexels-photo-4427430.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/8111848/pexels-photo-8111848.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ]
+  },
+  {
+    id: 9,
+    category: 'design',
+    image: 'https://images.pexels.com/photos/6069509/pexels-photo-6069509.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    title: 'Arimis',
+    description: 'Self-initiated rebrand project for the famous Arimis brand',
+    fullDescription: 'A self-initiated project for the rebrand of the famous Arimis brand. This passion project explored modern design approaches to refresh a well-known brand identity. Deliverables included logo redesign, brand elements, and product label designs. The rebrand maintains brand recognition while bringing a contemporary edge and demonstrating creative problem-solving abilities.',
+    client: 'Self-Initiated',
+    date: '2024',
+    gallery: [
+      'https://images.pexels.com/photos/6069509/pexels-photo-6069509.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3738369/pexels-photo-3738369.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1842332/pexels-photo-1842332.jpeg?auto=compress&cs=tinysrgb&w=800'
     ]
   }
 ];
